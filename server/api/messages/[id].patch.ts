@@ -3,9 +3,9 @@ export default eventHandler(async (event) => {
   const { text } = await readBody(event);
 
   const result = await db
-    .prepare('UPDATE messages SET text = ?1 WHERE id = ?')
-    .bind(text)
-    .run();
+  .prepare('UPDATE messages SET text = ?1 WHERE id = ?')
+  .bind(text, id)
+  .run();
 
   if (result.changes === 0) {
     return { error: 'sendNoContent(event, 204)' };
