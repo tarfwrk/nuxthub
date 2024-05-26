@@ -9,7 +9,7 @@ export default eventHandler(async (event) => {
   }
 
   // Ensure file size limit
-  ensureBlob(file, { maxSize: '10MB' })
+  ensureBlob(file, { maxSize: '200MB' })
 
   // Upload file to blob storage
   return hubBlob().put(file.name, file)
